@@ -1,7 +1,7 @@
 package br.ifpr.jogo.modelo;
 
 import java.awt.Image;
-import java.io.File;
+import java.awt.event.KeyEvent;
 
 import javax.swing.ImageIcon;
 
@@ -10,7 +10,7 @@ public class Personagem {
     private int posicaoEmY;
     private int deslocamentoEmX;
     private int deslocamentoEmY;
-    private Image image;
+    private Image imagem;
     private int largutaImagem;
     private int alturaImagem;
 
@@ -21,8 +21,37 @@ public class Personagem {
     }
 
     public void carregar() {
-        ImageIcon carregando = new ImageIcon("recursos\\nave");
-        this.imagemfundo = "";
+        ImageIcon carregando = new ImageIcon("recursos\\submarino.png");
+        this.imagem = carregando.getImage();
+        this.alturaImagem = this.imagem.getWidth(null);
+        this.largutaImagem = this.imagem.getHeight(null);
+
+    }
+
+    public void atualizar() {
+        this.posicaoEmX = this.posicaoEmX + this.deslocamentoEmX;
+        this.posicaoEmY = this.posicaoEmY + deslocamentoEmY;
+
+    }
+
+    public void mover(KeyEvent tecla) {
+        int codigo = tecla.getKeyCode();
+        switch (codigo) {
+            case KeyEvent.VK_UP:
+                this.deslocamentoEmY = -DESLOCAMENTO;
+                break;
+            case KeyEvent.VK_DOWN:
+                this.deslocamentoEmY = DESLOCAMENTO;
+                break;
+            case KeyEvent.VK_LEFT:
+                this.deslocamentoEmX = -DESLOCAMENTO;
+                break;
+            case KeyEvent.VK_RIGHT: DESLOCAMENTO;
+                break;
+            default:
+                break;
+
+        }
 
     }
 
@@ -59,11 +88,11 @@ public class Personagem {
     }
 
     public Image getImage() {
-        return this.image;
+        return this.imagem;
     }
 
     public void setImage(Image image) {
-        this.image = image;
+        this.imagem = image;
     }
 
     public int getLargutaImagem() {

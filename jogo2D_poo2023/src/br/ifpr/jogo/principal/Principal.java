@@ -10,7 +10,7 @@ public class Principal extends JFrame {
         super.add(fase);
         super.setResizable(false);
         super.setVisible(true);
-        this.setSize(1000, 750);
+        this.setSize(1900, 1080);
         this.setTitle("Jogo da Nathy");
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
